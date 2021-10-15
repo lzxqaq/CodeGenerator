@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1366</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>521</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>数据库</string>
+    </property>
+    <widget class="QRadioButton" name="rdoSqlServer">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>89</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>SQL Server</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rdoMySql">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>20</y>
+       <width>89</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>MySql</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rdoSqlite">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>20</y>
+       <width>89</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sqlite</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rdoPostgreSql">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>20</y>
+       <width>89</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PostgreSQL</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>30</y>
+      <width>54</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>连接语句：</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="letConnect">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>20</y>
+      <width>651</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnTestConn">
+    <property name="geometry">
+     <rect>
+      <x>1270</x>
+      <y>10</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>测试</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnConnect">
+    <property name="geometry">
+     <rect>
+      <x>1270</x>
+      <y>40</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>连接</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="tableListFrame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>361</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSetMainTable">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>140</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>设为主表</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSetForeignTable">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>180</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>关联外表</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnReset">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>260</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>重置</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="mainTableFrame">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>60</y>
+      <width>361</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QFrame" name="foreignTableFrame">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>310</y>
+      <width>361</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnGenResult">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>140</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>生成</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="resultTableFrame">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>70</y>
+      <width>441</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>600</y>
+      <width>54</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>类名：</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="letClassName">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>590</y>
+      <width>113</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnOpenDir">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>630</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>打开路径</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnGenClass">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>590</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>数据类生成</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnGenSqlCfg">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>590</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>数据类sql配置文件</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnGenJsonCfg">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>590</y>
+      <width>121</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>数据类json配置文件</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnGenSelectAllSql">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>590</y>
+      <width>91</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>全查询sql语句</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDelField">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>180</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;&lt; 删除字段</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="letFindTable">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>55</y>
+      <width>113</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnFindDown">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>60</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>下</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnFindUp">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>60</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>上</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>55</y>
+      <width>54</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>查找：</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDelFT">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>220</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>删除外表</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>600</y>
+      <width>54</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>字段名：</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="letFieldName">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>590</y>
+      <width>200</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSaveFieldName">
+    <property name="geometry">
+     <rect>
+      <x>1270</x>
+      <y>590</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>修改</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1366</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
