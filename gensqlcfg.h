@@ -1,7 +1,7 @@
 #ifndef GENSQLCFG_H
 #define GENSQLCFG_H
 
-#include <QList>
+#include <QObject>
 
 class TableField;
 

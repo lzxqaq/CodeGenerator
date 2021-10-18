@@ -293,7 +293,7 @@
    <widget class="QPushButton" name="btnGenClass">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>210</x>
       <y>590</y>
       <width>75</width>
       <height>23</height>
@@ -306,7 +306,7 @@
    <widget class="QPushButton" name="btnGenSqlCfg">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>400</x>
       <y>590</y>
       <width>111</width>
       <height>23</height>
@@ -324,7 +324,7 @@
    <widget class="QPushButton" name="btnGenJsonCfg">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>530</x>
       <y>590</y>
       <width>121</width>
       <height>23</height>
@@ -342,7 +342,7 @@
    <widget class="QPushButton" name="btnGenSelectAllSql">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>730</x>
       <y>590</y>
       <width>91</width>
       <height>23</height>
@@ -466,6 +466,19 @@
     </property>
     <property name="text">
      <string>修改</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnGenDao">
+    <property name="geometry">
+     <rect>
+      <x>294</x>
+      <y>590</y>
+      <width>101</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>数据持久层生成</string>
     </property>
    </widget>
   </widget>

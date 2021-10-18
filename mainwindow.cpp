@@ -10,6 +10,7 @@
 #include "setforeigntabledialog.h"
 #include "genclass.h"
 #include "gensqlcfg.h"
+#include "gendao.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -104,7 +105,7 @@ void MainWindow::radioButtonTrueOn(QRadioButton *rdo)
         m_connSql = "select name from sysobjects where xtype='U' order by name";
     }
     else if(rdo == ui->rdoSqlServer) {
-        ui->letConnect->setText("DRIVER={SQL SERVER};SERVER=127.0.0.1,1433;DATABASE=CARMES10_5Y;UID=CARMES6User;PWD=CA.RME!S6U#*ser");
+        ui->letConnect->setText("");
         m_driverType = "QODBC";
         m_connSql = "select name from sysobjects where xtype='U' order by name";
         m_setTableStructSql = "SELECT CASE WHEN col.colorder = 1 THEN obj.name " \
@@ -487,6 +488,21 @@ void MainWindow::on_btnGenSqlCfg_clicked()
     }
 }
 
+void MainWindow::on_btnGenDao_clicked()
+{
+
+    if(isValid()) {
+        createDir(ui->letClassName->text());
+
+        GenDao::genHFile(ui->letClassName->text(), m_fields, m_tables);
+        GenDao::genCppFile(ui->letClassName->text(), m_fields, m_tables);
+
+        statusBar()->showMessage("数据类sql配置文件生成成功");
+    }
+
+}
+
+
 void MainWindow::on_btnGenJsonCfg_clicked()
 {
 
@@ -644,3 +660,4 @@ void MainWindow::on_btnSaveFieldName_clicked()
         m_resultTableWidget->currentItem()->setText(resultStr);
     }
 }
+

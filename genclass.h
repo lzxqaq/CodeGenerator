@@ -1,7 +1,7 @@
 #ifndef GENCLASS_H
 #define GENCLASS_H
 
-#include <QHash>
+#include <QObject>
 
 class GenClass
 {

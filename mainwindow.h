@@ -82,6 +82,8 @@ private slots:
 
     void on_btnSaveFieldName_clicked();
 
+    void on_btnGenDao_clicked();
+
 private:
     Ui::MainWindow *ui;
 

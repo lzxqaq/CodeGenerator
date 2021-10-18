@@ -33,11 +33,11 @@ void GenClass::genHFile(const QString &className, const QList<QString> &keys, co
     stream<<"#ifndef "<<upperTmp<<"_H"<<NEWLINE;
     stream<<"#define "<<upperTmp<<"_H"<<NEWLINE;
     stream<<NEWLINE;
-    stream<<"#include \"datainterface.h\""<<NEWLINE;
+    stream<<"#include \"genericentity.h\""<<NEWLINE;
 
 
     stream<<NEWLINE;
-    stream<<"class "<<className<<" : public DataInterface"<<NEWLINE;
+    stream<<"class "<<className<<" : public GenericEntity"<<NEWLINE;
     stream<<"{"<<NEWLINE;
     stream<<"    Q_OBJECT"<<NEWLINE;
 
@@ -65,10 +65,10 @@ void GenClass::genHFile(const QString &className, const QList<QString> &keys, co
     stream<<"    "<<className<<"();"<<NEWLINE;
 
     //数据类接口
-    stream<<NEWLINE;
-    stream<<"    //DataInterface interface"<<NEWLINE;
-    stream<<"    DataInterface* clone() override;"<<NEWLINE;
-    stream<<"    DataInterface *newEmpty() override;"<<NEWLINE;
+//    stream<<NEWLINE;
+//    stream<<"    //DataInterface interface"<<NEWLINE;
+//    stream<<"    DataInterface* clone() override;"<<NEWLINE;
+//    stream<<"    DataInterface *newEmpty() override;"<<NEWLINE;
 
 
     //get/set方法
@@ -94,7 +94,6 @@ void GenClass::genHFile(const QString &className, const QList<QString> &keys, co
     stream<<"};"<<NEWLINE;
     stream<<NEWLINE;
     stream<<NEWLINE;
-    stream<<NEWLINE;
     stream<<"#endif // "<<upperTmp<<"_H"<<NEWLINE;
     file.close();
 }
@@ -111,32 +110,32 @@ void GenClass::genCppFile(const QString &className, const QList<QString> &keys, 
     QTextStream stream(&file);
 
     stream<<QString("#include \"%1.h\"").arg(lowerTmp)<<NEWLINE;
-    stream<<"#include <QMetaProperty>"<<NEWLINE;
+//    stream<<"#include <QMetaProperty>"<<NEWLINE;
     stream<<NEWLINE;
     //无参构造函数
     stream<<className<<"::"<<className<<"()"<<NEWLINE;
     stream<<"{"<<NEWLINE;
     stream<<"}"<<NEWLINE;
 
-    stream<<NEWLINE;
-    stream<<"DataInterface *"<<className<<"::clone()"<<NEWLINE;
-    stream<<"{"<<NEWLINE;
-    stream<<"    "<<className<<" *newData = new "<<className<<"();"<<NEWLINE;
-    stream<<"    const QMetaObject *metaObj = this->metaObject();"<<NEWLINE;
-    stream<<"    int count = metaObj->propertyCount();"<<NEWLINE;
-    stream<<"    for(int i=0; i<count; i++) {"<<NEWLINE;
-    stream<<"        QMetaProperty prop = metaObj->property(i);"<<NEWLINE;
-    stream<<"        const char *name = prop.name();"<<NEWLINE;
-    stream<<"        newData->setProperty(name, this->property(name));"<<NEWLINE;
-    stream<<"    }"<<NEWLINE;
-    stream<<"    return newData;"<<NEWLINE;
-    stream<<"}"<<NEWLINE;
+//    stream<<NEWLINE;
+//    stream<<"DataInterface *"<<className<<"::clone()"<<NEWLINE;
+//    stream<<"{"<<NEWLINE;
+//    stream<<"    "<<className<<" *newData = new "<<className<<"();"<<NEWLINE;
+//    stream<<"    const QMetaObject *metaObj = this->metaObject();"<<NEWLINE;
+//    stream<<"    int count = metaObj->propertyCount();"<<NEWLINE;
+//    stream<<"    for(int i=0; i<count; i++) {"<<NEWLINE;
+//    stream<<"        QMetaProperty prop = metaObj->property(i);"<<NEWLINE;
+//    stream<<"        const char *name = prop.name();"<<NEWLINE;
+//    stream<<"        newData->setProperty(name, this->property(name));"<<NEWLINE;
+//    stream<<"    }"<<NEWLINE;
+//    stream<<"    return newData;"<<NEWLINE;
+//    stream<<"}"<<NEWLINE;
 
-    stream<<NEWLINE;
-    stream<<"DataInterface *"<<className<<"::newEmpty()"<<NEWLINE;
-    stream<<"{"<<NEWLINE;
-    stream<<"    return new "<<className<<"();"<<NEWLINE;
-    stream<<"}"<<NEWLINE;
+//    stream<<NEWLINE;
+//    stream<<"DataInterface *"<<className<<"::newEmpty()"<<NEWLINE;
+//    stream<<"{"<<NEWLINE;
+//    stream<<"    return new "<<className<<"();"<<NEWLINE;
+//    stream<<"}"<<NEWLINE;
 
     QStringList varNames;
     QStringList readMethods;

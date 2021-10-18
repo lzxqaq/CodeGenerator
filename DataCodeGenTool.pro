@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     genclass.cpp \
+    gendao.cpp \
     gensqlcfg.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 
 HEADERS += \
     genclass.h \
+    gendao.h \
     gensqlcfg.h \
     mainwindow.h \
     setforeigntabledialog.h
