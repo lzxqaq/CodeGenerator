@@ -30,6 +30,14 @@ void GenDao::genHFile(const QString &className, const QVector<TableField> &field
     QTextStream stream(&file);
 
     QString upperTmp = className.toUpper();
+
+    stream<<"/******************************************************************************"<<NEWLINE;
+    stream<<" *"<<NEWLINE;
+    stream<<" *   This file is created by the code generator.                            "<<NEWLINE;
+    stream<<" *"<<NEWLINE;
+    stream<<" *****************************************************************************/"<<NEWLINE;
+    stream<<NEWLINE;
+
     stream<<"#ifndef "<<upperTmp<<"DAO_H"<<NEWLINE;
     stream<<"#define "<<upperTmp<<"DAO_H"<<NEWLINE;
     stream<<NEWLINE;
@@ -37,8 +45,7 @@ void GenDao::genHFile(const QString &className, const QVector<TableField> &field
 
     stream<<NEWLINE;
 
-    stream<<"class ";
-    stream<<className;
+    stream<<"class "<<className<<";";
 
     stream<<NEWLINE;
     stream<<"class "<<className<<"Dao"<<NEWLINE;

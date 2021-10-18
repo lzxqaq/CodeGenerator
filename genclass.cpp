@@ -28,8 +28,15 @@ void GenClass::genHFile(const QString &className, const QList<QString> &keys, co
     }
     QTextStream stream(&file);
 
-
     QString upperTmp = className.toUpper();
+
+    stream<<"/******************************************************************************"<<NEWLINE;
+    stream<<" *"<<NEWLINE;
+    stream<<" *   This file is created by the code generator.                            "<<NEWLINE;
+    stream<<" *"<<NEWLINE;
+    stream<<" *****************************************************************************/"<<NEWLINE;
+    stream<<NEWLINE;
+
     stream<<"#ifndef "<<upperTmp<<"_H"<<NEWLINE;
     stream<<"#define "<<upperTmp<<"_H"<<NEWLINE;
     stream<<NEWLINE;
